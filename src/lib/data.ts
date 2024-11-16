@@ -60,7 +60,7 @@ const projectList: ProjectProps[] = [
     lightImg: "/portfolio.JPG",
     darkImg: "/portfolio-dark.JPG",
     desc: "A simple portfolio showcasing my skills and works. Front end based application powered with shadcn and Framer Motion.",
-    logo: "/portfolio-logo.png",
+    logo: "/portfolio-logo.svg",
     tech: ["React", "NextJS", "TypeScript", "TailwindCSS"],
     siteLink: "/",
     repoLink: "https://github.com/Yaosquared/my-portfolio-test-dep",
