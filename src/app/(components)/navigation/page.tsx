@@ -27,11 +27,11 @@ const Navbar = () => {
           className="text-lg font-bold"
         >
           <Image
-            src="/portfolio-logo.png"
+            src="/portfolio-logo.svg"
             alt="Logo"
-            width={64}
-            height={64}
-            className="w-12 h-12 md:w-14 md:h-14 lg:w-auto lg:h-auto"
+            width={54}
+            height={54}
+            className="md:w-16 md:h-16 lg:w-18 lg:h-18 xl:w-20 xl:h-20"
           />
         </motion.h2>
       </Link>

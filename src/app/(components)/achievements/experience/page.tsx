@@ -22,7 +22,7 @@ const Experience = () => {
                 width={100}
                 height={100}
                 alt="logo"
-                className="w-[20%] h-16 object-cover p-1 rounded-full border shadow-md dark:shadow-zinc-900 z-20"
+                className="w-[20%] h-16 object-cover p-2 rounded-full border shadow-sm dark:shadow-zinc-900 z-20"
               />
             </div>
             <div className="border rounded-lg px-8 py-4 w-full text-center z-10 shadow-md dark:shadow-zinc-900 sm:w-96">
