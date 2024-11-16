@@ -18,7 +18,7 @@ const Contact = () => {
   return (
     <article
       id="contact"
-      className="w-[90%] md:w-[70%] lg:w-[30%] mx-auto my-10 md:my-24 text-center"
+      className="w-[90%] md:w-[70%] lg:w-[50%] xl:w-[40%] 2xl:w-[30%] mx-auto my-10 md:my-24 text-center"
     >
       <Card>
         <CardHeader>
