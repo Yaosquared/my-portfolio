@@ -4,6 +4,7 @@ import * as React from "react";
 import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { cva, type VariantProps } from "class-variance-authority";
 import { FiMenu } from "react-icons/fi";
+import { motion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 

@@ -9,24 +9,56 @@ import { MovingBorderBtn } from "@/components/ui/moving-border";
 
 import { navLinks } from "@/lib/data";
 
+// Define the staggered animation properties
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.4,
+    },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 },
+};
+
+const imageVariant = {
+  hidden: { opacity: 0, scale: 0.8 },
+  show: { opacity: 1, scale: 1 },
+};
+
 const Hero = () => {
   const resumeUrl = navLinks[3]?.url;
 
   return (
     <article className="min-h-[87vh] flex flex-col-reverse gap-10 lg:gap-0 lg:flex-row items-center justify-around relative">
-      <div className="text-center lg:text-left lg:w-3/6">
-        <h1 className="text-4xl lg:text-7xl font-bold py-6">
+      <motion.div
+        className="text-center lg:text-left lg:w-3/6"
+        variants={container}
+        initial="hidden"
+        animate="show"
+      >
+        <motion.h1
+          className="text-4xl lg:text-7xl font-bold py-6"
+          variants={item}
+        >
           Hi 👋, I&apos;m
           <span className="bg-clip-text text-transparent bg-gradient-to-r to-[#89E3F1] from-[#29456D] dark:to-[#29456D] dark:from-[#89E3F1]">
             &nbsp;Mario.
           </span>
-        </h1>
-        <p className="text-lg dark:text-gray-300">
-          An aspiring Frontend Developer with a degree in Bachelor of
-          Engineering Technology - Major in Computer Engineering Technology from
+        </motion.h1>
+        <motion.p className="text-lg dark:text-gray-300" variants={item}>
+          An aspiring Software Engineer with a degree in Bachelor of Engineering
+          Technology - Major in Computer Engineering Technology from
           Technological University of the Philippines - Cavite.
-        </p>
-        <div className="flex gap-2 py-4 justify-center lg:justify-start">
+        </motion.p>
+        <motion.div
+          className="flex gap-2 py-4 justify-center lg:justify-start"
+          variants={item}
+        >
           <Link target="_blank" href={resumeUrl}>
             <motion.div
               whileHover={{
@@ -63,9 +95,14 @@ const Hero = () => {
               </Button>
             </motion.div>
           </Link>
-        </div>
-      </div>
-      <div className="w-72 h-full lg:w-auto lg:h-auto relative">
+        </motion.div>
+      </motion.div>
+      <motion.div
+        variants={imageVariant}
+        initial="hidden"
+        animate="show"
+        className="w-72 h-full lg:w-auto lg:h-auto relative"
+      >
         <Image
           src="/my-photo.jpeg"
           width={400}
@@ -81,7 +118,7 @@ const Hero = () => {
             <p>📣 Available for Work!</p>
           </MovingBorderBtn>
         </div>
-      </div>
+      </motion.div>
     </article>
   );
 };

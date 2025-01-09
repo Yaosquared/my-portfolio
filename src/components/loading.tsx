@@ -13,5 +13,3 @@ const Loading = () => {
   );
 };
 export default Loading;
-
-// implement when navigating to different pages
