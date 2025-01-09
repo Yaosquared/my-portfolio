@@ -50,11 +50,15 @@ const Certifications = () => {
               <Dialog key={cert.id}>
                 <DialogTrigger asChild>
                   <CarouselItem>
-                    <AspectRatio ratio={16 / 12}>
+                    <AspectRatio
+                      ratio={16 / 12}
+                      className="flex items-center justify-center"
+                    >
                       <Image
                         src={cert.img}
                         alt={cert.alt}
-                        fill
+                        width={cert.width}
+                        height={cert.height}
                         className="rounded-md object-cover border p-6 hover:cursor-pointer"
                       />
                     </AspectRatio>
@@ -96,11 +100,15 @@ const Certifications = () => {
               <Dialog key={cert.id}>
                 <DialogTrigger asChild>
                   <CarouselItem>
-                    <AspectRatio ratio={16 / 12}>
+                    <AspectRatio
+                      ratio={16 / 12}
+                      className="flex items-center justify-center"
+                    >
                       <Image
                         src={cert.img}
                         alt={cert.alt}
-                        fill
+                        width={cert.width}
+                        height={cert.height}
                         className="rounded-md object-cover border p-6 hover:cursor-pointer"
                       />
                     </AspectRatio>

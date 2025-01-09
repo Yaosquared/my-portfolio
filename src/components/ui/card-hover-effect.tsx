@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import { IconType } from "react-icons";
+import { CombinedIconType } from "@/lib/types";
 
 export const HoverEffect = ({
   items,
@@ -9,14 +9,14 @@ export const HoverEffect = ({
 }: {
   items: {
     text: string;
-    icon: IconType;
+    icon: CombinedIconType;
   }[];
   className?: string;
 }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <div className={cn("grid grid-cols-2  lg:grid-cols-4  py-10", className)}>
+    <div className={cn("grid grid-cols-2  lg:grid-cols-6  py-10", className)}>
       {items.map((item, idx) => {
         const Icon = item.icon;
 

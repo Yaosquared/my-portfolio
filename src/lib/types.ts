@@ -1,4 +1,7 @@
-import { IconType } from "react-icons";
+import { IconType as ReactIconType } from "react-icons";
+import { IconType as SimpleIconType } from "@icons-pack/react-simple-icons";
+
+export type CombinedIconType = ReactIconType | SimpleIconType;
 
 export interface NavLinkProps {
   url: string;
@@ -19,10 +22,16 @@ export interface ProjectProps {
   target: string;
 }
 
+export interface ProjectCardProps {
+  project: ProjectProps;
+  index: number;
+  getImagePath: (lightImg: string, darkImg: string) => string;
+}
+
 export interface SkillProps {
   id: number;
   text: string;
-  icon: IconType;
+  icon: CombinedIconType;
 }
 
 export interface CertificateProps {
@@ -46,6 +55,6 @@ export interface ExperienceProps {
 export interface SocialProps {
   id: number;
   label: string;
-  icon: IconType;
+  icon: CombinedIconType;
   link: string;
 }
