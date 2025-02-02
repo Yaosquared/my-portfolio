@@ -95,7 +95,7 @@ const ProjectCard = ({ project, index, getImagePath }: ProjectCardProps) => {
           <h2 className="text-lg xl:text-xl font-bold mt-4">
             Technologies Used:
           </h2>
-          <ul className="flex flex-wrap gap-2 py-2 pl-5">
+          <ul className="flex flex-wrap gap-2 py-2 pl-5  justify-center">
             {project.tech.map((tech: string, techIndex: number) => (
               <li
                 key={techIndex}
