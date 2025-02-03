@@ -46,7 +46,7 @@ export const HoverEffect = ({
               order border-input bg-background hover:bg-accent
               hover:text-accent-foreground
             </AnimatePresence>
-            <div className="rounded-md w-full p-4 overflow-hidden border border-input bg-background hover:bg-accent relative z-20 transition-all duration-500 cursor-pointer">
+            <div className="rounded-md w-full md:p-4 overflow-hidden border border-input bg-background hover:bg-accent relative z-20 transition-all duration-500 cursor-pointer">
               <div className="py-6 md:py-10 z-50 relative space-y-5 justify-center">
                 <Icon className="w-8 h-8 mx-auto" />
                 <p className="text-base md:text-xl font-bold text-center dark:text-gray-300">

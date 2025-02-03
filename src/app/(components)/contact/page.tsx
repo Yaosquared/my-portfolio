@@ -28,9 +28,10 @@ const Contact = () => {
               className="flex flex-col items-center justify-center rotate-2"
             />
           </CardTitle>
-          <CardDescription className="text-base md:text-lg lg:text-xl">
+          <CardDescription className="text-base lg:text-lg">
             I&apos;m always interested in hearing about new learning
-            opportunities and writing front-end codes.
+            opportunities, collaborating on coding projects, or simply
+            connecting on social platforms.
           </CardDescription>
         </CardHeader>
         <CardContent>

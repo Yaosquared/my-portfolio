@@ -52,7 +52,7 @@ const Hero = () => {
         </motion.h1>
         <motion.p className="text-lg dark:text-gray-300" variants={item}>
           An aspiring Software Engineer with a degree in Bachelor of Engineering
-          Technology - Major in Computer Engineering Technology from
+          Technology, Major in Computer Engineering Technology from
           Technological University of the Philippines - Cavite.
         </motion.p>
         <motion.div
