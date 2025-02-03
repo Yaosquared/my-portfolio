@@ -9,6 +9,8 @@ import {
   SiExpress,
   SiPostman,
   SiJira,
+  SiPrisma,
+  SiMongoose,
 } from "react-icons/si";
 import {
   FaHtml5,
@@ -85,7 +87,7 @@ const projectList: ProjectProps[] = [
     title: "IMS",
     lightImg: "/ims.JPG",
     darkImg: "/ims.JPG",
-    desc: "An inventory management system that leverages CRUD operations. Back end based application that features JWT-based authentication for secure access and Sass for styling.",
+    desc: "An inventory management system that leverages CRUD operations. Backend application that features credential-based authentication with JWT for secure access and Sass for styling.",
     logo: "/ims-logo.png",
     tech: [
       "JavaScript",
@@ -106,7 +108,7 @@ const projectList: ProjectProps[] = [
     title: "My Portfolio",
     lightImg: "/portfolio.JPG",
     darkImg: "/portfolio-dark.JPG",
-    desc: "A simple portfolio showcasing my skills and works. Front end based application powered with shadcn and Framer Motion.",
+    desc: "A simple portfolio showcasing my skills and works. Frontend application powered with shadcn and Framer Motion.",
     logo: "/portfolio-logo.svg",
     tech: [
       "TypeScript",
@@ -140,7 +142,7 @@ const skillList: SkillProps[] = [
   },
   {
     id: 4,
-    text: "TailwindCSS",
+    text: "Tailwind",
     icon: SiTailwindcss,
   },
   {
@@ -164,72 +166,83 @@ const skillList: SkillProps[] = [
     icon: SiNextdotjs,
   },
   {
-    id: 8,
+    id: 9,
     text: "Node.js",
     icon: FaNodeJs,
   },
   {
-    id: 8,
+    id: 10,
     text: "Express.js",
     icon: SiExpress,
   },
   {
-    id: 8,
+    id: 11,
     text: "EJS",
     icon: SiEjs,
   },
   {
-    id: 9,
+    id: 12,
     text: "Python",
     icon: FaPython,
   },
   {
-    id: 12,
+    id: 13,
     text: "SQL",
     icon: GoDatabase,
   },
   {
-    id: 12,
+    id: 14,
+    text: "Prisma",
+    icon: SiPrisma,
+  },
+  {
+    id: 15,
     text: "MongoDB",
     icon: DiMongodb,
   },
+
   {
-    id: 13,
+    id: 16,
+    text: "Mongoose",
+    icon: SiMongoose,
+  },
+  {
+    id: 17,
     text: "Git",
     icon: FaGitAlt,
   },
   {
-    id: 14,
+    id: 18,
     text: "GitHub",
     icon: FaGithub,
   },
   {
-    id: 15,
+    id: 19,
     text: "Figma",
     icon: FaFigma,
   },
   {
-    id: 16,
+    id: 20,
     text: "Vercel",
     icon: IoLogoVercel,
   },
   {
-    id: 17,
+    id: 21,
     text: "Render",
     icon: SiRender,
   },
   {
-    id: 17,
+    id: 22,
     text: "Postman",
     icon: SiPostman,
   },
   {
-    id: 17,
+    id: 23,
     text: "Jira",
     icon: SiJira,
   },
   {
-    id: 17,
+    id: 24,
     text: "Confluence",
     icon: FaConfluence,
   },
