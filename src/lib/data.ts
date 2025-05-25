@@ -154,7 +154,7 @@ const projectList: ProjectProps[] = [
     lightImg: "/portfolio.JPG",
     darkImg: "/portfolio-dark.JPG",
     desc: "A personal portfolio showcasing my skills and works. Frontend application powered with shadcn and Framer Motion.",
-    logo: "/portfolio-logo.svg",
+    logo: "/ysqrd-logo.png",
     tech: [
       "TypeScript",
       "React",
