@@ -51,9 +51,9 @@ const Hero = () => {
           </span>
         </motion.h1>
         <motion.p className="text-lg dark:text-gray-300" variants={item}>
-          An aspiring Software Engineer with a degree in Bachelor of Engineering
-          Technology, Major in Computer Engineering Technology from
-          Technological University of the Philippines - Cavite.
+          A Software Engineer with degree in Bachelor of Engineering Technology,
+          Major in Computer Engineering Technology from Technological University
+          of the Philippines - Cavite.
         </motion.p>
         <motion.div
           className="flex gap-2 py-4 justify-center lg:justify-start"
@@ -115,7 +115,8 @@ const Hero = () => {
             borderRadius="0.5rem"
             className="p-3 font-semibold cursor-default"
           >
-            <p>📣 Available for Work!</p>
+            {/* <p>📣 Available for Work!</p> */}
+            <p>🚀 Software Engineer @ QTech Inc.</p>
           </MovingBorderBtn>
         </div>
       </motion.div>

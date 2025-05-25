@@ -49,11 +49,11 @@ const Navbar = () => {
         >
           <motion.div variants={imageVariant} initial="hidden" animate="show">
             <Image
-              src="/portfolio-logo.svg"
+              src="/ysqrd-logo.png"
               alt="Logo"
-              width={54}
-              height={54}
-              className="w-12 h-12 md:w-16 md:h-16 lg:w-18 lg:h-18 xl:w-19 xl:h-19"
+              width={50}
+              height={50}
+              className="w-12 h-12 md:w-16 md:h-16 lg:w-14 lg:h-14 xl:w-19 xl:h-19"
             />
           </motion.div>
         </motion.h2>

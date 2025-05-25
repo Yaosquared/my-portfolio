@@ -4,7 +4,7 @@ import "./globals.css";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "./(components)/navigation/page";
-import NotAvail from "@/components/na";
+// import NotAvail from "@/components/na";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
