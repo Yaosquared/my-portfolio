@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 
 import {
@@ -16,14 +16,29 @@ import { ProjectCardProps } from "@/lib/types";
 
 const ProjectCard = ({ project, index, getImagePath }: ProjectCardProps) => {
   const ref = useRef<HTMLDivElement>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
   const isInView = useInView(ref, { once: true });
 
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["0 1", "1.33 1"],
   });
-  const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.9, 1]);
-  const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+  const scaleProgress = useTransform(
+    scrollYProgress,
+    [0, 1],
+    hasAnimated ? [1, 1] : [0.9, 1]
+  );
+  const opacityProgress = useTransform(
+    scrollYProgress,
+    [0, 1],
+    hasAnimated ? [1, 1] : [0.8, 1]
+  );
+
+  useEffect(() => {
+    if (isInView && !hasAnimated) {
+      setHasAnimated(true);
+    }
+  }, [isInView, hasAnimated]);
 
   return (
     <motion.div

@@ -15,7 +15,7 @@ const Projects = () => {
     } else if (theme === "dark") {
       return darkImg;
     }
-    return lightImg; // Default to light image if theme is undefined
+    return lightImg;
   };
 
   return (
