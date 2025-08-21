@@ -403,7 +403,7 @@ const expList: ExperienceProps[] = [
   },
   {
     id: 3,
-    title: "Software Engineer",
+    title: "Associate Software Engineer",
     location: "Quantum Technology Inc.",
     description:
       "Responsible for developing and maintaining web and mobile applications, utilizing modern technologies to create efficient, scalable, and user-friendly solutions.",
@@ -411,17 +411,18 @@ const expList: ExperienceProps[] = [
     img: "/qtech-logo.jpg",
     tech: [
       "React",
+      "React Router v7",
       "React Native",
       "Expo",
       "TailwindCSS",
-      "NativeWind",
       "TypeScript",
+      "Exxpress.js",
       "Python",
       "FastAPI",
-      "SQLAlchemy",
+      "SQL",
       "MySQL",
       "Firebase",
-      "OAuth",
+      "Git",
     ],
   },
 ];
