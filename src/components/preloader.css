@@ -1,0 +1,78 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-content: center;
+  position: relative;
+  color: #29456d;
+  animation-name: contain;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  background-color: #89e3f1;
+  border: 5px solid transparent;
+  width: 300px;
+  height: 300px;
+  transform-origin: center;
+}
+
+.first {
+  display: flex;
+  justify-content: end;
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  font-size: 14em;
+  animation: drop 2s ease-out forwards;
+}
+
+.second {
+  display: flex;
+  justify-content: end;
+  padding-right: 10px;
+  position: absolute;
+  top: 24%;
+  left: 50%;
+  font-size: 15em;
+  transform: rotateZ(116deg);
+  animation: rollLeft 2s ease-out forwards;
+}
+
+@keyframes drop {
+  from {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rollLeft {
+  from {
+    transform: translateX(300%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0) rotateZ(116deg);
+    opacity: 1;
+  }
+}
+
+@keyframes contain {
+  0% {
+    border-color: transparent;
+    transform: scale(0.5);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    border-color: #29456d;
+    transform: scale(1);
+  }
+}

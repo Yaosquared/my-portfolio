@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FiMenu } from "react-icons/fi";
+import { usePathname } from "next/navigation";
 
 import {
   Sheet,
@@ -18,6 +19,9 @@ import { ModeToggle } from "@/components/mode-togler";
 import { navLinks } from "@/lib/data";
 
 const Navbar = () => {
+  const pathname = usePathname();
+  const isAchievementsRoute = pathname === "/achievements";
+
   // Define the staggered animation properties
   const container = {
     hidden: { opacity: 0 },
@@ -43,11 +47,15 @@ const Navbar = () => {
     <nav className="flex items-center justify-between py-6 z-10">
       <Link href="/">
         <motion.h2
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.95 }}
+          whileHover={!isAchievementsRoute ? { scale: 1.03 } : {}}
+          whileTap={!isAchievementsRoute ? { scale: 0.95 } : {}}
           className="text-lg font-bold"
         >
-          <motion.div variants={imageVariant} initial="hidden" animate="show">
+          <motion.div
+            variants={!isAchievementsRoute ? imageVariant : {}}
+            initial={!isAchievementsRoute ? "hidden" : false}
+            animate={!isAchievementsRoute ? "show" : false}
+          >
             <Image
               src="/ysqrd-logo.png"
               alt="Logo"
@@ -60,24 +68,24 @@ const Navbar = () => {
       </Link>
       <div className="flex items-center gap-12">
         <motion.ul
-          variants={container}
-          initial="hidden"
-          animate="show"
+          variants={!isAchievementsRoute ? container : {}}
+          initial={!isAchievementsRoute ? "hidden" : false}
+          animate={!isAchievementsRoute ? "show" : false}
           className="hidden items-center lg:flex text-lg gap-16"
         >
           {navLinks.map((nav, index) => (
-            <motion.li key={index} variants={item}>
+            <motion.li key={index} variants={!isAchievementsRoute ? item : {}}>
               <Link href={nav.url} target={nav.target}>
                 <motion.div
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={!isAchievementsRoute ? { scale: 1.03 } : {}}
+                  whileTap={!isAchievementsRoute ? { scale: 0.95 } : {}}
                 >
                   {nav.label}
                 </motion.div>
               </Link>
             </motion.li>
           ))}
-          <motion.div variants={item}>
+          <motion.div variants={!isAchievementsRoute ? item : {}}>
             <ModeToggle />
           </motion.div>
         </motion.ul>
@@ -85,11 +93,11 @@ const Navbar = () => {
         {/* // mobile nav */}
         <motion.div
           className="lg:hidden"
-          variants={container}
-          initial="hidden"
-          animate="show"
+          variants={!isAchievementsRoute ? container : {}}
+          initial={!isAchievementsRoute ? "hidden" : false}
+          animate={!isAchievementsRoute ? "show" : false}
         >
-          <motion.div variants={item}>
+          <motion.div variants={!isAchievementsRoute ? item : {}}>
             <Sheet>
               <SheetTrigger>
                 <FiMenu size={20} />
