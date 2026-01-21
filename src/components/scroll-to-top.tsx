@@ -37,7 +37,7 @@ const ScrollToTop = () => {
       whileTap={{
         scale: 0.95,
       }}
-      className="fixed bottom-0 right-0 m-6"
+      className="fixed bottom-0 right-0 m-6 z-10"
     >
       <IoIosArrowDropupCircle
         onClick={scroll}

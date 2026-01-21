@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { GoBriefcase } from "react-icons/go";
 
 import Title from "@/components/title";
 import { expList } from "@/lib/data";
@@ -17,13 +18,19 @@ const Experience = () => {
               <div className="flex justify-center w-[80%] text-gray-500 pt-0.5 gap-8">
                 {element.date}
               </div>
-              <Image
-                src={element.img}
-                width={100}
-                height={100}
-                alt="logo"
-                className="w-[20%] h-16 object-cover p-1 rounded-full border shadow-sm dark:shadow-zinc-900 z-20"
-              />
+              {element.img ? (
+                <Image
+                  src={element.img}
+                  width={100}
+                  height={100}
+                  alt="logo"
+                  className="w-[20%] h-16 object-cover p-1 rounded-full border shadow-sm dark:shadow-zinc-900 z-20"
+                />
+              ) : (
+                <div className="w-[60px] h-16 object-cover p-1 rounded-full border shadow-sm dark:shadow-zinc-900 z-20 flex justify-center items-center">
+                  <GoBriefcase color="gray" size={24} />
+                </div>
+              )}
             </div>
             <div className="border rounded-lg px-8 py-4 w-full text-center z-10 shadow-md dark:shadow-zinc-900 sm:w-96">
               <div className="text-xl font-semibold">{element.title}</div>
@@ -46,13 +53,19 @@ const Experience = () => {
                   );
                 })}
               </div>
-              <Image
-                src={element.img}
-                width={100}
-                height={100}
-                alt="logo"
-                className="w-8 h-8 p-1 rounded-lg z-20 absolute left-4 top-4 sm:hidden"
-              />
+              {element.img ? (
+                <Image
+                  src={element.img}
+                  width={100}
+                  height={100}
+                  alt="logo"
+                  className="w-8 h-8 p-1 rounded-lg z-20 absolute left-4 top-4 sm:hidden"
+                />
+              ) : (
+                <div className="w-8 h-8 p-1 rounded-lg z-20 absolute left-4 top-4 sm:hidden flex justify-center items-center">
+                  <GoBriefcase color="gray" />
+                </div>
+              )}
             </div>
           </div>
         ))}

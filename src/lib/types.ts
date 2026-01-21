@@ -48,7 +48,7 @@ export interface ExperienceProps {
   location: string;
   description: string;
   date: string;
-  img: string;
+  img?: string;
   tech: string[];
 }
 
