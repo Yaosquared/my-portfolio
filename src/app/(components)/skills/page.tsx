@@ -7,7 +7,7 @@ import { skillList } from "@/lib/data";
 
 const Skills = () => {
   return (
-    <article className="px-8 mt-10 lg:mt-4">
+    <article className="xl:px-8 mt-10 lg:mt-4">
       <Title
         text="Skills"
         className="flex flex-col items-center justify-center rotate-2"

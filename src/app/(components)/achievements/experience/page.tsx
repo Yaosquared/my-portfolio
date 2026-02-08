@@ -11,9 +11,9 @@ const Experience = () => {
         text="Experience"
         className="flex flex-col items-center justify-center -rotate-2"
       />
-      <div className="flex flex-col justify-center items-center text-base pt-8 sm:text-lg">
+      <div className="flex flex-col justify-center items-center text-base pt-8 sm:text-lg gap-4">
         {expList.map((element) => (
-          <div key={element.id} className="flex m-4 relative gap-8">
+          <div key={element.id} className="flex relative gap-8">
             <div className="hidden item-start w-72 relative sm:flex gap-8">
               <div className="flex justify-center w-[80%] text-gray-500 pt-0.5 gap-8">
                 {element.date}
@@ -32,7 +32,7 @@ const Experience = () => {
                 </div>
               )}
             </div>
-            <div className="border rounded-lg px-8 py-4 w-full text-center z-10 shadow-md dark:shadow-zinc-900 sm:w-96">
+            <div className="rounded-lg px-8 py-4 w-full text-center z-10 shadow-md dark:shadow-zinc-900 sm:w-96">
               <div className="text-xl font-semibold">{element.title}</div>
               <div className="text-accent-foreground mb-6 sm:mb-8 text-sm">
                 {element.location}
