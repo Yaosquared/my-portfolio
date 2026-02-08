@@ -19,7 +19,7 @@ const Projects = () => {
   };
 
   return (
-    <article id="projects" className="p-5 sm:p-0 lg:mt-6">
+    <article id="projects" className="xl:p-5 sm:p-0 lg:mt-6">
       <Title
         text="Projects"
         className="flex flex-col items-center justify-center -rotate-2"

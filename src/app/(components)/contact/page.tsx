@@ -84,7 +84,7 @@ const Contact = () => {
   return (
     <article
       id="contact"
-      className="w-[90%] md:w-[70%] lg:w-[50%] xl:w-[40%] mx-auto my-10 md:my-24 text-center"
+      className="w-full md:w-[70%] lg:w-[50%] xl:w-[40%] mx-auto my-10 md:my-24 text-center"
     >
       <Card>
         <CardHeader>
@@ -107,7 +107,7 @@ const Contact = () => {
               e.preventDefault();
               await submitForm();
             }}
-            className="border rounded-md flex flex-col p-8 gap-3"
+            className="rounded-md flex flex-col p-2 xl:p-8 gap-3"
           >
             <div className="flex flex-col">
               <label htmlFor="email" className="text-left font-medium">

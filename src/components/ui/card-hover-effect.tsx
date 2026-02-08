@@ -16,7 +16,7 @@ export const HoverEffect = ({
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <div className={cn("grid grid-cols-2  lg:grid-cols-6  py-10", className)}>
+    <div className={cn("grid grid-cols-3 lg:grid-cols-6  py-10", className)}>
       {items.map((item, idx) => {
         const Icon = item.icon;
 
