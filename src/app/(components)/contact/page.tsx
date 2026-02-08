@@ -107,7 +107,7 @@ const Contact = () => {
               e.preventDefault();
               await submitForm();
             }}
-            className="rounded-md flex flex-col p-2 xl:p-8 gap-3"
+            className="rounded-md flex flex-col p-2 xl:p-8 xl:pt-0 gap-3"
           >
             <div className="flex flex-col">
               <label htmlFor="email" className="text-left font-medium">
