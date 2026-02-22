@@ -77,7 +77,7 @@ const Hero = () => {
               </Button>
             </motion.div>
           </Link>
-          <Link target="_blank" href="mailto:marioyaoyao14@gmail.com">
+          <Link target="_self" href="/#contact">
             <motion.div
               whileHover={{
                 scale: 1.03,
