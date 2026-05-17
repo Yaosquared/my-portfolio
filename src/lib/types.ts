@@ -28,10 +28,25 @@ export interface ProjectCardProps {
   getImagePath: (lightImg: string, darkImg: string) => string;
 }
 
+export type CategoryProps =
+  | "core"
+  | "frontend"
+  | "backend"
+  | "tool"
+  | "platform";
+
+export type DisplayCategoryProps =
+  | "core"
+  | "frontend"
+  | "backend"
+  | "tool-platform";
+
 export interface SkillProps {
   id: number;
   text: string;
   icon: CombinedIconType;
+  category: CategoryProps[];
+  displayCategory: DisplayCategoryProps;
 }
 
 export interface CertificateProps {
