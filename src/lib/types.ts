@@ -17,8 +17,11 @@ export interface ProjectProps {
   desc: string;
   logo: string;
   tech: string[];
-  siteLink: string;
-  repoLink: string;
+  siteLink?: string;
+  repoLinks: {
+    fe?: string;
+    be?: string;
+  };
   target: string;
 }
 

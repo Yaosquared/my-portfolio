@@ -26,12 +26,12 @@ const ProjectCard = ({ project, index, getImagePath }: ProjectCardProps) => {
   const scaleProgress = useTransform(
     scrollYProgress,
     [0, 1],
-    hasAnimated ? [1, 1] : [0.9, 1]
+    hasAnimated ? [1, 1] : [0.9, 1],
   );
   const opacityProgress = useTransform(
     scrollYProgress,
     [0, 1],
-    hasAnimated ? [1, 1] : [0.8, 1]
+    hasAnimated ? [1, 1] : [0.8, 1],
   );
 
   useEffect(() => {
@@ -39,6 +39,16 @@ const ProjectCard = ({ project, index, getImagePath }: ProjectCardProps) => {
       setHasAnimated(true);
     }
   }, [isInView, hasAnimated]);
+
+  const image = (
+    <Image
+      src={getImagePath(project.lightImg, project.darkImg)}
+      alt={`Project ${project.id}`}
+      width={800}
+      height={800}
+      className="rounded-t-xl xl:rounded-tr-none xl:rounded-l-xl border border-b-0 xl:border-b border-r-0 border-accent"
+    />
+  );
 
   return (
     <motion.div
@@ -53,15 +63,13 @@ const ProjectCard = ({ project, index, getImagePath }: ProjectCardProps) => {
       className="flex flex-col xl:flex-row w-full py-6"
     >
       <div className="xl:shadow-md flex justify-center bg-slate-50 dark:bg-neutral-950 dark:border rounded-tl-xl rounded-tr-xl">
-        <Link href={project.siteLink} target={project.target}>
-          <Image
-            src={getImagePath(project.lightImg, project.darkImg)}
-            alt={`Project ${project.id}`}
-            width={800}
-            height={800}
-            className="rounded-t-xl xl:rounded-tr-none xl:rounded-l-xl border border-b-0 xl:border-b border-r-0 border-accent"
-          />
-        </Link>
+        {project.siteLink ? (
+          <Link href={project.siteLink} target={project.target}>
+            {image}
+          </Link>
+        ) : (
+          image
+        )}
       </div>
       <div className="border xl:border-l-0 border-accent bg-transparent hover:bg-accent dark:hover:bg-accent/90 transition ease-in-out duration-500 flex flex-col w-full xl:w-1/2 p-6 rounded-b-xl xl:rounded-bl-none xl:rounded-r-xl justify-between shadow-md">
         <div>
@@ -69,40 +77,47 @@ const ProjectCard = ({ project, index, getImagePath }: ProjectCardProps) => {
           <p className="text-base xl:text-lg py-2 mb-2">{project.desc}</p>
           <TooltipProvider>
             <div className="flex flex-row space-x-4 pl-5">
-              <Link
-                href={project.siteLink}
-                target={project.target}
-                className="flex items-center cursor-pointer"
-              >
-                <Tooltip>
-                  <TooltipTrigger>
-                    <Image
-                      src={project.logo}
-                      alt={`${project.title} Logo`}
-                      width={40}
-                      height={40}
-                      className="cursor-pointer"
-                    />
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>{`Go to ${project.title}`}</p>
-                  </TooltipContent>
-                </Tooltip>
-              </Link>
-              <Link
-                href={project.repoLink}
-                target="_blank"
-                className="flex items-center cursor-pointer"
-              >
-                <Tooltip>
-                  <TooltipTrigger>
-                    <FaGithub size={34} />
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>{`Go to ${project.title} repository`}</p>
-                  </TooltipContent>
-                </Tooltip>
-              </Link>
+              {project.siteLink && (
+                <Link
+                  href={project.siteLink}
+                  target={project.target}
+                  className="flex items-center cursor-pointer"
+                >
+                  <Tooltip>
+                    <TooltipTrigger>
+                      <Image
+                        src={project.logo}
+                        alt={`${project.title} Logo`}
+                        width={40}
+                        height={40}
+                        className="cursor-pointer"
+                      />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{`Go to ${project.title}`}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </Link>
+              )}
+              {project.repoLinks.fe && (
+                <Link
+                  href={project.repoLinks.fe}
+                  target="_blank"
+                  className="flex items-center cursor-pointer"
+                >
+                  <FaGithub size={34} />
+                </Link>
+              )}
+
+              {project.repoLinks.be && (
+                <Link
+                  href={project.repoLinks.be}
+                  target="_blank"
+                  className="flex items-center cursor-pointer"
+                >
+                  <FaGithub size={34} />
+                </Link>
+              )}
             </div>
           </TooltipProvider>
         </div>

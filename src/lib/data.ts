@@ -15,6 +15,7 @@ import {
   SiMysql,
   SiPostgresql,
   SiDrizzle,
+  SiDotnet,
 } from "react-icons/si";
 import {
   FaHtml5,
@@ -30,7 +31,7 @@ import {
 } from "react-icons/fa";
 import { IoLogoVercel } from "react-icons/io5";
 import { GoDatabase } from "react-icons/go";
-import { DiMongodb } from "react-icons/di";
+import { DiMongodb, DiMsqlServer } from "react-icons/di";
 import { SiRender } from "@icons-pack/react-simple-icons";
 import { BiLogoCPlusPlus } from "react-icons/bi";
 
@@ -70,25 +71,50 @@ const navLinks: NavLinkProps[] = [
 const projectList: ProjectProps[] = [
   {
     id: 1,
-    title: "Ledgr",
-    lightImg: "/ledgr.png",
-    darkImg: "/ledgr.png",
-    desc: "A personal finance and productivity management application designed to help users track transactions, manage budgets, set financial goals, monitor attendance, and generate insightful reports — all in one place.",
+    title: "MedLease",
+    lightImg: "/medlease.png",
+    darkImg: "/medlease-dark.png",
+    desc: "A medical equipment leasing platform for managing lease contracts, equipment inventory, payments, and multi-organization workflows across vendors and clinics.",
     logo: "/ysqrd-logo.png",
     tech: [
       "TypeScript",
       "Vue.js",
-      "TanStack Query",
-      "Sass",
-      "SQL",
-      "PostgreSQL",
-      "Vercel",
-      "Render",
+      "Tailwind CSS",
+      "Nuxt UI",
+      "Pinia Colada",
+      "C#",
+      "ASP.NET Core",
+      "Entity Framework Core",
+      "Microsoft SQL Server",
     ],
-    siteLink: "https://ledgr-self.vercel.app/",
-    repoLink: "https://github.com/yaosquared/budget-app",
+    siteLink: undefined,
+    repoLinks: {
+      fe: "https://github.com/yaosquared/medlease-app",
+      be: "https://github.com/yaosquared/medlease-api",
+    },
     target: "_blank",
   },
+  // {
+  //   id: 1,
+  //   title: "Ledgr",
+  //   lightImg: "/ledgr.png",
+  //   darkImg: "/ledgr.png",
+  //   desc: "A personal finance and productivity management application designed to help users track transactions, manage budgets, set financial goals, monitor attendance, and generate insightful reports — all in one place.",
+  //   logo: "/ysqrd-logo.png",
+  //   tech: [
+  //     "TypeScript",
+  //     "Vue.js",
+  //     "TanStack Query",
+  //     "Sass",
+  //     "SQL",
+  //     "PostgreSQL",
+  //     "Vercel",
+  //     "Render",
+  //   ],
+  //   siteLink: "https://ledgr-self.vercel.app/",
+  //   repoLink: "https://github.com/yaosquared/budget-app",
+  //   target: "_blank",
+  // },
   {
     id: 2,
     title: "PCRMS",
@@ -108,7 +134,9 @@ const projectList: ProjectProps[] = [
       "Vercel",
     ],
     siteLink: "https://pcrms.vercel.app/",
-    repoLink: "https://github.com/Yaosquared/pcrms",
+    repoLinks: {
+      fe: "https://github.com/Yaosquared/pcrms",
+    },
     target: "_blank",
   },
   // {
@@ -173,7 +201,9 @@ const projectList: ProjectProps[] = [
       "Render",
     ],
     siteLink: "https://ims-mm79.onrender.com/",
-    repoLink: "https://github.com/Yaosquared/ims",
+    repoLinks: {
+      be: "https://github.com/Yaosquared/ims",
+    },
     target: "_blank",
   },
   {
@@ -193,7 +223,9 @@ const projectList: ProjectProps[] = [
       "Vercel",
     ],
     siteLink: "/",
-    repoLink: "https://github.com/Yaosquared/my-portfolio-test-dep",
+    repoLinks: {
+      fe: "https://github.com/Yaosquared/my-portfolio-test-dep",
+    },
     target: "_self",
   },
 ];
@@ -231,14 +263,14 @@ const skillList: SkillProps[] = [
     id: 5,
     text: "JavaScript",
     icon: SiJavascript,
-    category: ["core", "frontend"],
+    category: ["core", "frontend", "backend"],
     displayCategory: "frontend",
   },
   {
     id: 6,
     text: "TypeScript",
     icon: SiTypescript,
-    category: ["core", "frontend"],
+    category: ["core", "frontend", "backend"],
     displayCategory: "frontend",
   },
   {
@@ -262,6 +294,7 @@ const skillList: SkillProps[] = [
     category: ["frontend"],
     displayCategory: "frontend",
   },
+
   // {
   //   id: 10,
   //   text: "React Native",
@@ -276,6 +309,7 @@ const skillList: SkillProps[] = [
   //   category: ["frontend"],
   //   displayCategory: "frontend",
   // },
+
   {
     id: 10,
     text: "Node.js",
@@ -283,6 +317,7 @@ const skillList: SkillProps[] = [
     category: ["core", "backend"],
     displayCategory: "backend",
   },
+
   // {
   //   id: 11,
   //   text: "EJS",
@@ -290,6 +325,7 @@ const skillList: SkillProps[] = [
   //   category: ["backend"],
   //   displayCategory: "backend",
   // },
+
   {
     id: 11,
     text: "Express.js",
@@ -306,118 +342,139 @@ const skillList: SkillProps[] = [
   },
   {
     id: 13,
+    text: "ASP.NET Core",
+    icon: SiDotnet,
+    category: ["backend"],
+    displayCategory: "backend",
+  },
+  {
+    id: 14,
     text: "Python",
     icon: FaPython,
     category: ["backend"],
     displayCategory: "backend",
   },
   {
-    id: 14,
+    id: 15,
     text: "FastAPI",
     icon: SiFastapi,
     category: ["backend"],
     displayCategory: "backend",
   },
   {
-    id: 15,
+    id: 16,
     text: "SQL",
     icon: GoDatabase,
     category: ["core", "backend"],
     displayCategory: "backend",
   },
   {
-    id: 16,
+    id: 17,
     text: "MySQL",
     icon: SiMysql,
     category: ["core", "backend"],
     displayCategory: "backend",
   },
   {
-    id: 17,
+    id: 18,
     text: "PostgreSQL",
     icon: SiPostgresql,
     category: ["backend"],
     displayCategory: "backend",
   },
   {
-    id: 18,
+    id: 19,
+    text: "SQL Server",
+    icon: DiMsqlServer,
+    category: ["backend"],
+    displayCategory: "backend",
+  },
+  {
+    id: 20,
     text: "MongoDB",
     icon: DiMongodb,
     category: ["backend"],
     displayCategory: "backend",
   },
   {
-    id: 19,
+    id: 21,
     text: "Mongoose",
     icon: SiMongoose,
     category: ["backend"],
     displayCategory: "backend",
   },
   {
-    id: 20,
+    id: 22,
     text: "Prisma",
     icon: SiPrisma,
     category: ["backend"],
     displayCategory: "backend",
   },
   {
-    id: 21,
+    id: 23,
     text: "Drizzle",
     icon: SiDrizzle,
     category: ["backend"],
     displayCategory: "backend",
   },
   {
-    id: 22,
+    id: 24,
+    text: "EF Core",
+    icon: SiDotnet,
+    category: ["backend"],
+    displayCategory: "backend",
+  },
+  {
+    id: 25,
     text: "Git",
     icon: FaGitAlt,
     category: ["tool"],
     displayCategory: "tool-platform",
   },
   {
-    id: 23,
+    id: 26,
     text: "GitHub",
     icon: FaGithub,
     category: ["platform"],
     displayCategory: "tool-platform",
   },
   {
-    id: 24,
+    id: 27,
     text: "Figma",
     icon: FaFigma,
     category: ["tool"],
     displayCategory: "tool-platform",
   },
   {
-    id: 25,
+    id: 28,
     text: "Vercel",
     icon: IoLogoVercel,
     category: ["platform"],
     displayCategory: "tool-platform",
   },
   {
-    id: 26,
+    id: 29,
     text: "Render",
     icon: SiRender,
     category: ["platform"],
     displayCategory: "tool-platform",
   },
   {
-    id: 27,
+    id: 30,
     text: "Postman",
     icon: SiPostman,
     category: ["tool"],
     displayCategory: "tool-platform",
   },
   {
-    id: 28,
+    id: 31,
     text: "Jira",
     icon: SiJira,
     category: ["platform"],
     displayCategory: "tool-platform",
   },
   {
-    id: 29,
+    id: 32,
     text: "Confluence",
     icon: FaConfluence,
     category: ["platform"],
