@@ -116,6 +116,7 @@ const Contact = () => {
               <input
                 type="text"
                 name="email"
+                placeholder="name@email.com"
                 value={formValues.email}
                 onChange={handleChange}
                 className={`border rounded-md p-2 ${errors.email ? "border-red-500" : "border-input"}`}
@@ -128,6 +129,7 @@ const Contact = () => {
               <input
                 type="text"
                 name="subject"
+                placeholder="What's this about?"
                 value={formValues.subject}
                 onChange={handleChange}
                 className={`border rounded-md p-2 ${errors.subject ? "border-red-500" : "border-input"}`}
@@ -139,6 +141,7 @@ const Contact = () => {
               </label>
               <textarea
                 name="message"
+                placeholder="Write your message here..."
                 value={formValues.message}
                 onChange={handleChange}
                 className={`border rounded-md p-2 ${errors.message ? "border-red-500" : "border-input"}`}

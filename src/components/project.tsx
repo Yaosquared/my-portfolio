@@ -105,7 +105,14 @@ const ProjectCard = ({ project, index, getImagePath }: ProjectCardProps) => {
                   target="_blank"
                   className="flex items-center cursor-pointer"
                 >
-                  <FaGithub size={34} />
+                  <Tooltip>
+                    <TooltipTrigger>
+                      <FaGithub size={34} />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{`Go to ${project.title} frontend repository`}</p>
+                    </TooltipContent>
+                  </Tooltip>
                 </Link>
               )}
 
@@ -115,7 +122,14 @@ const ProjectCard = ({ project, index, getImagePath }: ProjectCardProps) => {
                   target="_blank"
                   className="flex items-center cursor-pointer"
                 >
-                  <FaGithub size={34} />
+                  <Tooltip>
+                    <TooltipTrigger>
+                      <FaGithub size={34} />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{`Go to ${project.title} backend repository`}</p>
+                    </TooltipContent>
+                  </Tooltip>
                 </Link>
               )}
             </div>
