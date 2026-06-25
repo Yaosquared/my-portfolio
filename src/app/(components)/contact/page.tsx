@@ -1,7 +1,7 @@
 "use client";
 
 import axios from "axios";
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import {
   Card,
@@ -33,7 +33,7 @@ const formatSlug = (slug: string) =>
     })
     .join(" ");
 
-const Contact = () => {
+const ContactForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
   const [formValues, setFormValues] = useState({
@@ -198,5 +198,11 @@ const Contact = () => {
     </article>
   );
 };
+
+const Contact = () => (
+  <Suspense fallback={null}>
+    <ContactForm />
+  </Suspense>
+);
 
 export default Contact;
