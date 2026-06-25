@@ -62,9 +62,9 @@ const navLinks: NavLinkProps[] = [
     target: "_self",
   },
   {
-    url: "https://drive.google.com/file/d/1QE62RWTdFjBsEB-w8iNCuRLGuj1ReQ9E/view?usp=sharing",
+    url: "/?req=resume-request#contact",
     label: "Resume",
-    target: "_blank",
+    target: "_self",
   },
 ];
 
@@ -92,7 +92,7 @@ const projectList: ProjectProps[] = [
     siteLink: "https://medlease-app.vercel.app/",
     repoLinks: {
       fe: "https://github.com/yaosquared/medlease-app/tree/enhancements",
-      be: "https://github.com/yaosquared/medlease-api/tree/enhancements",
+      be: "forRequest",
     },
     target: "_blank",
   },

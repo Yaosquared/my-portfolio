@@ -1,7 +1,8 @@
 "use client";
 
 import axios from "axios";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import {
   Card,
   CardContent,
@@ -12,6 +13,25 @@ import {
 import Title from "@/components/title";
 import { Button } from "@/components/ui/button";
 import { toast } from "react-hot-toast";
+
+const SLUG_DICTIONARY: Record<string, string> = {
+  be: "Backend",
+  fe: "Frontend",
+  repo: "Repository",
+  req: "Request",
+};
+
+const formatSlug = (slug: string) =>
+  slug
+    .split("-")
+    .filter(Boolean)
+    .map((word) => {
+      const lower = word.toLowerCase();
+      return (
+        SLUG_DICTIONARY[lower] ?? word.charAt(0).toUpperCase() + word.slice(1)
+      );
+    })
+    .join(" ");
 
 const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -27,20 +47,41 @@ const Contact = () => {
     message: false,
   });
 
+  const rawSlug = useSearchParams().get("req");
+
+  useEffect(() => {
+    if (!rawSlug) {
+      setFormValues({ email: "", subject: "", message: "" });
+      return;
+    }
+
+    if (rawSlug === "resume-request") {
+      setFormValues((prev) => ({
+        ...prev,
+        subject: "Resume Request",
+        message: `Hi,\n\nI came across your portfolio and I'm interested in viewing your resume.\n\nCould you please send a copy of your resume to my email?\n\nThank you.`,
+      }));
+      return;
+    }
+
+    const displaySlug = formatSlug(rawSlug);
+    const displayWithoutRequest = displaySlug
+      .replace(/\bRequest\b/i, "")
+      .trim();
+
+    setFormValues((prev) => ({
+      ...prev,
+      subject: displaySlug,
+      message: `Hi,\n\nI'm requesting access to ${displayWithoutRequest}. Please add my email to the repository access list.\n\nLet me know if you need any additional details.\n\nThank you.`,
+    }));
+  }, [rawSlug]);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
-
-    setFormValues((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-
-    setErrors((prev) => ({
-      ...prev,
-      [name]: false,
-    }));
+    setFormValues((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: false }));
   };
 
   const submitForm = async () => {
@@ -54,11 +95,7 @@ const Contact = () => {
 
     setErrors(newErrors);
 
-    if (
-      !formValues.email.trim() ||
-      !formValues.subject.trim() ||
-      !formValues.message.trim()
-    ) {
+    if (Object.values(newErrors).some(Boolean)) {
       toast.error("Please fill in all fields before sending your message.");
       return;
     }
@@ -67,7 +104,6 @@ const Contact = () => {
 
     try {
       const result = await axios.post("/api/contact", formValues);
-
       setFormValues({ email: "", subject: "", message: "" });
       toast.success(result.data.message);
     } catch (error: unknown) {
@@ -144,6 +180,7 @@ const Contact = () => {
                 placeholder="Write your message here..."
                 value={formValues.message}
                 onChange={handleChange}
+                rows={6}
                 className={`border rounded-md p-2 ${errors.message ? "border-red-500" : "border-input"}`}
               />
             </div>

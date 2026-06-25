@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 
 import {
@@ -14,7 +15,28 @@ import {
 import { FaGithub } from "react-icons/fa";
 import { ProjectCardProps } from "@/lib/types";
 
+const REPO_REQUEST_FLAG = "forRequest";
+
+const slugify = (value: string) =>
+  value
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+const getRepoHref = (
+  projectTitle: string,
+  repoType: "fe" | "be",
+  value: string,
+) => {
+  if (value === REPO_REQUEST_FLAG) {
+    return `/?req=${slugify(projectTitle)}-${repoType}-code-repo-req#contact`;
+  }
+  return value;
+};
+
 const ProjectCard = ({ project, index, getImagePath }: ProjectCardProps) => {
+  const router = useRouter();
   const ref = useRef<HTMLDivElement>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
   const isInView = useInView(ref, { once: true });
@@ -49,6 +71,11 @@ const ProjectCard = ({ project, index, getImagePath }: ProjectCardProps) => {
       className="rounded-t-xl xl:rounded-tr-none xl:rounded-l-xl border border-b-0 xl:border-b border-r-0 border-accent"
     />
   );
+
+  const repoEntries: { type: "fe" | "be"; label: string }[] = [
+    { type: "fe", label: "frontend" },
+    { type: "be", label: "backend" },
+  ];
 
   return (
     <motion.div
@@ -99,39 +126,36 @@ const ProjectCard = ({ project, index, getImagePath }: ProjectCardProps) => {
                   </Tooltip>
                 </Link>
               )}
-              {project.repoLinks.fe && (
-                <Link
-                  href={project.repoLinks.fe}
-                  target="_blank"
-                  className="flex items-center cursor-pointer"
-                >
-                  <Tooltip>
-                    <TooltipTrigger>
-                      <FaGithub size={34} />
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>{`Go to ${project.title} frontend repository`}</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </Link>
-              )}
 
-              {project.repoLinks.be && (
-                <Link
-                  href={project.repoLinks.be}
-                  target="_blank"
-                  className="flex items-center cursor-pointer"
-                >
-                  <Tooltip>
-                    <TooltipTrigger>
-                      <FaGithub size={34} />
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>{`Go to ${project.title} backend repository`}</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </Link>
-              )}
+              {repoEntries.map(({ type, label }) => {
+                const value = project.repoLinks[type];
+                if (!value) return null;
+
+                const isRequest = value === REPO_REQUEST_FLAG;
+                const href = getRepoHref(project.title, type, value);
+
+                return (
+                  <Link
+                    key={type}
+                    href={href}
+                    target={isRequest ? "_self" : "_blank"}
+                    className="flex items-center cursor-pointer"
+                  >
+                    <Tooltip>
+                      <TooltipTrigger>
+                        <FaGithub size={34} />
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>
+                          {isRequest
+                            ? `Request access to ${project.title} ${label} repository`
+                            : `Go to ${project.title} ${label} repository`}
+                        </p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </Link>
+                );
+              })}
             </div>
           </TooltipProvider>
         </div>

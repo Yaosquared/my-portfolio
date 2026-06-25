@@ -22,7 +22,7 @@ export async function POST(req: Request) {
       from: process.env.MAIL_RECEIVER_ADDRESS,
       to: process.env.MAIL_RECEIVER_ADDRESS,
       subject: subject,
-      text: message,
+      text: `${message}\n\nSender Email: ${email}`,
     });
 
     return NextResponse.json({ message: "Message sent successfully" });
