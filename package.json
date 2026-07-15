@@ -28,7 +28,7 @@
     "mini-svg-data-uri": "^1.4.4",
     "next": "14.1.2",
     "next-themes": "^0.2.1",
-    "nodemailer": "^8.0.0",
+    "nodemailer": "^9.0.3",
     "react": "^18",
     "react-dom": "^18",
     "react-hot-toast": "^2.6.0",
@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@types/node": "^20",
-    "@types/nodemailer": "^7.0.9",
+    "@types/nodemailer": "^8.0.1",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
