@@ -339,14 +339,14 @@ const skillList: SkillProps[] = [
     id: 12,
     text: "C#",
     icon: BiLogoCPlusPlus,
-    category: ["backend"],
+    category: ["core", "backend"],
     displayCategory: "backend",
   },
   {
     id: 13,
     text: "ASP.NET Core",
     icon: SiDotnet,
-    category: ["backend"],
+    category: ["core", "backend"],
     displayCategory: "backend",
   },
   {
