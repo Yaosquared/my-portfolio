@@ -1,21 +1,24 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
-import Title from "@/components/title";
 import { projectList } from "@/lib/data";
+import Title from "@/components/title";
 import ProjectCard from "@/components/project";
 
 const Projects = () => {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const getImagePath = (lightImg: string, darkImg: string) => {
-    if (theme === "light") {
-      return lightImg;
-    } else if (theme === "dark") {
-      return darkImg;
-    }
-    return lightImg;
+    // Before hydration completes, always match the server's output (light).
+    if (!mounted) return lightImg;
+    return resolvedTheme === "dark" ? darkImg : lightImg;
   };
 
   return (
